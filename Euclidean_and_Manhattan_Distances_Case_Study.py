@@ -74,10 +74,9 @@ largeMat = np.random.random((10000,100))
 # %% markdown
 # **<font color='teal'>Plot histograms of each distance matrix for comparison.</font>**
 # %% codecell
-plt.subplots(1,3, figsize=(20,20/3))
-plt.subplot(111)
-plt.hist(DistEuclid)
-plt.subplot(121)
-plt.hist(DistManhattan)
-plt.subplot(131)
-plt.hist(largeMat)
+fig, axs = plt.subplots(1,2,figsize=(20,10))
+plt.title('EuclideanDistance VS ManhattanDistance')
+axs[0].hist(DistEuclid, label='Euclidean', color='blue')
+axs[1].hist(DistManhattan, label='Manhattan', color='red')
+plt.legend()
+plt.savefig('figures/EvsM.png')
